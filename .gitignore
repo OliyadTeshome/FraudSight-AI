@@ -1,3 +1,6 @@
+# FraudSight-AI Project Specific Ignores
+# ======================================
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -50,6 +53,8 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
+.coverage
+coverage/
 
 # Translations
 *.mo
@@ -127,6 +132,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.venv/
 
 # Spyder project settings
 .spyderproject
@@ -175,23 +181,30 @@ cython_debug/
 *.pt
 *.onnx
 *.pb
+*.sav
+*.pkl.gz
 
-# Data files (uncomment if you want to ignore data)
+# Data files - uncomment if you want to ignore data
 # data/
 # *.csv
 # *.json
 # *.parquet
 # *.feather
 
-# Model artifacts
+# Model artifacts and outputs
 models/
 checkpoints/
 runs/
 logs/
 wandb/
+reports/figures/
+reports/shap/
+*.html
+*.pdf
 
-# Jupyter notebook outputs
-*.ipynb
+# Jupyter notebook outputs (keep notebooks but ignore outputs)
+.ipynb_checkpoints/
+*.ipynb_checkpoints
 
 # OS specific
 .DS_Store
@@ -208,6 +221,8 @@ Thumbs.db
 *.swp
 *.swo
 *~
+*.bak
+*.backup
 
 # IDE specific
 .idea/
@@ -217,6 +232,14 @@ Thumbs.db
 .vscode/
 *.code-workspace
 
-# Pre-commit
+# Pre-commit and development tools
 .pre-commit-config.yaml
 bandit-report.json
+*.log
+
+# Fraud detection specific
+fraud_detection_results/
+anomaly_scores/
+risk_assessments/
+*.risk
+*.fraud_score
