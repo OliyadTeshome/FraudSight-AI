@@ -1,0 +1,16 @@
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+xgboost
+lightgbm
+imblearn
+ipaddress
+category_encoders
+shap
+pytest
+black
+flake8
+isort
+pre-commit
