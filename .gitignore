@@ -184,12 +184,12 @@ cython_debug/
 *.sav
 *.pkl.gz
 
-# Data files - uncomment if you want to ignore data
-# data/
-# *.csv
-# *.json
-# *.parquet
-# *.feather
+# Data files
+data/
+*.csv
+*.json
+*.parquet
+*.feather
 
 # Model artifacts and outputs
 models/
