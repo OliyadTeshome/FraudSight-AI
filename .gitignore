@@ -200,8 +200,7 @@ checkpoints/
 runs/
 logs/
 wandb/
-reports/figures/
-reports/shap/
+reports/
 *.html
 *.pdf
 
@@ -246,3 +245,65 @@ anomaly_scores/
 risk_assessments/
 *.risk
 *.fraud_score
+
+# Large files and datasets
+*.zip
+*.tar.gz
+*.rar
+*.7z
+*.bz2
+
+# API keys and secrets
+.env.local
+.env.production
+.env.staging
+secrets.json
+config.json
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Cache directories
+.cache/
+__pycache__/
+*.pyc
+
+# Documentation builds
+docs/_build/
+site/
+
+# Performance profiling
+*.prof
+*.lprof
+
+# SHAP and model interpretability
+shap_values/
+feature_importance/
+model_explanations/
+
+# Experiment tracking
+mlruns/
+mlflow/
+tensorboard_logs/
+
+# Model versioning
+model_versions/
+model_registry/
+
+# Data processing artifacts
+processed_data/
+intermediate_data/
+temp_data/
+
+# Visualization outputs (keep figures but ignore temp files)
+*.png.tmp
+*.jpg.tmp
+*.svg.tmp
+temp_plots/
+
+# Logs and debugging
+debug_logs/
+error_logs/
+performance_logs/
