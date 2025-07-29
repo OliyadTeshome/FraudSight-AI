@@ -200,8 +200,7 @@ checkpoints/
 runs/
 logs/
 wandb/
-reports/figures/
-reports/shap/
+reports/
 *.html
 *.pdf
 
