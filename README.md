@@ -93,8 +93,8 @@ FraudSight-AI/
 ├── notebooks/             # Jupyter notebooks for analysis
 │   ├── 01_eda_preprocessing.ipynb      # ✅ EDA and preprocessing analysis
 │   ├── 02_creditcard_preparation.ipynb # ✅ Credit card data preparation
-│   ├── 03_fraud_modeling.ipynb         # 📝 Fraud modeling (placeholder)
-│   ├── 04_creditcard_fraud_modeling.ipynb # 📝 Credit card fraud modeling (placeholder)
+│   ├── 03_fraud_model.ipynb            # 📝 Fraud modeling (created, not implemented)
+│   ├── 04_fraud_model_creditcard.ipynb # 📝 Credit card fraud modeling (created, not implemented)
 │   └── 05_model_evaluation.ipynb       # 📝 Model evaluation (placeholder)
 ├── tests/                 # Unit tests (placeholder files)
 │   ├── test_feature_engineering.py
@@ -133,8 +133,8 @@ The project includes a complete analysis workflow through Jupyter notebooks:
    - Implements train-test split with stratification
    - Prepares data for machine learning models
 
-3. **03_fraud_modeling.ipynb** 📝 - **PLANNED**: Fraud modeling with custom features
-4. **04_creditcard_fraud_modeling.ipynb** 📝 - **PLANNED**: Credit card fraud modeling
+3. **03_fraud_model.ipynb** 📝 - **CREATED, NOT IMPLEMENTED**: Fraud modeling with custom features
+4. **04_fraud_model_creditcard.ipynb** 📝 - **CREATED, NOT IMPLEMENTED**: Credit card fraud modeling
 5. **05_model_evaluation.ipynb** 📝 - **PLANNED**: Model evaluation and performance metrics
 
 ## 🧪 Testing
@@ -218,17 +218,18 @@ For questions and support, please open an issue on GitHub or contact the develop
 - **Data Preparation**: Credit card data preparation notebook (02_creditcard_preparation.ipynb)
 
 ### 🚧 **In Progress**
-- Core functionality implementation in `src/` modules
-- Feature engineering modules
-- Model training and evaluation
-- SHAP interpretability analysis
+- Core functionality implementation in `src/` modules (currently placeholders)
+- Feature engineering modules (not yet implemented)
+- Model training and evaluation (not yet implemented)
+- SHAP interpretability analysis (not yet implemented)
+- Notebooks 03 and 04 created but not yet implemented
 
 ### 📝 **Next Steps**
 1. Implement data loading and preprocessing utilities in `src/`
 2. Develop feature engineering modules
 3. Create model training pipeline
-4. Add comprehensive testing
-5. Complete remaining Jupyter notebooks (03-05)
+4. Add comprehensive testing (test files exist as placeholders)
+5. Complete implementation of Jupyter notebooks 03, 04, and 05
 6. Implement SHAP analysis for model interpretability
 
 ### 📊 **Dataset Status**
