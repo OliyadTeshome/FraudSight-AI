@@ -93,18 +93,37 @@ FraudSight-AI/
 ├── notebooks/             # Jupyter notebooks for analysis
 │   ├── 01_eda_preprocessing.ipynb      # ✅ EDA and preprocessing analysis
 │   ├── 02_creditcard_preparation.ipynb # ✅ Credit card data preparation
-│   ├── 03_fraud_model.ipynb            # 📝 Fraud modeling (created, not implemented)
-│   ├── 04_fraud_model_creditcard.ipynb # 📝 Credit card fraud modeling (created, not implemented)
-│   └── 05_model_evaluation.ipynb       # 📝 Model evaluation (placeholder)
+│   ├── 03_fraud_model.ipynb            # ✅ Fraud modeling with custom features
+│   ├── 04_fraud_model_creditcard.ipynb # ✅ Credit card fraud modeling
+│   ├── 05_model_evaluation.ipynb       # ✅ Model evaluation and performance metrics
+│   └── 06_model_explainability.ipynb   # ✅ SHAP model interpretability
 ├── tests/                 # Unit tests (placeholder files)
 │   ├── test_feature_engineering.py
 │   ├── test_model_training.py
 │   ├── test_preprocessing.py
 │   └── test_shap.py
 ├── data/                  # Data storage
+│   ├── raw/              # Original datasets
+│   │   ├── Fraud_Data.csv
+│   │   ├── IpAddress_to_Country.csv
+│   │   └── creditcard.csv
+│   ├── processed/        # Processed datasets
+│   │   ├── train_ready.csv
+│   │   ├── test_ready.csv
+│   │   ├── creditcard_train_ready.csv
+│   │   └── creditcard_test_ready.csv
+│   └── models/           # Trained models
+│       ├── logistic_regression_model.pkl
+│       └── random_forest_model.pkl
 ├── reports/               # Generated reports and visualizations
 │   ├── figures/
-│   └── shap/
+│   ├── plots/            # Model performance plots
+│   │   ├── confusion matrices
+│   │   ├── ROC curves
+│   │   └── PR curves
+│   └── SHARP_plots/      # SHAP interpretability plots
+│       ├── summary plots
+│       └── force plots
 ├── ci/                    # CI/CD configuration
 │   └── github/
 │       └── workflows/
@@ -123,19 +142,61 @@ FraudSight-AI/
 
 The project includes a complete analysis workflow through Jupyter notebooks:
 
-1. **01_eda_preprocessing.ipynb** ✅ - **COMPLETED**: Exploratory data analysis and preprocessing for fraud detection datasets
-   - Loads and analyzes Fraud_Data.csv, IpAddress_to_Country.csv, and creditcard.csv
-   - Handles missing values and data quality checks
-   - Implements data preprocessing steps
+### ✅ **COMPLETED TASKS**
 
-2. **02_creditcard_preparation.ipynb** ✅ - **COMPLETED**: Credit card data preparation for modeling
-   - Loads and analyzes creditcard.csv dataset
-   - Implements train-test split with stratification
-   - Prepares data for machine learning models
+#### **Task 1 - Data Analysis and Preprocessing** ✅
+1. **01_eda_preprocessing.ipynb** - **COMPLETED**: Comprehensive data analysis and preprocessing
+   - ✅ **Missing Values Handling**: Analyzed and handled missing values in all datasets
+   - ✅ **Data Cleaning**: Removed duplicates and corrected data types
+   - ✅ **Exploratory Data Analysis**:
+     - Univariate analysis for all features
+     - Bivariate analysis for feature relationships
+   - ✅ **Dataset Merging**: Merged Fraud_Data.csv with IpAddress_to_Country.csv for geolocation analysis
+   - ✅ **Feature Engineering**:
+     - Transaction frequency and velocity features
+     - Time-based features (hour_of_day, day_of_week)
+     - time_since_signup: Duration between signup_time and purchase_time
+   - ✅ **Data Transformation**:
+     - Class imbalance handling with SMOTE oversampling
+     - Feature normalization and scaling (StandardScaler)
+     - Categorical feature encoding (One-Hot Encoding)
 
-3. **03_fraud_model.ipynb** 📝 - **CREATED, NOT IMPLEMENTED**: Fraud modeling with custom features
-4. **04_fraud_model_creditcard.ipynb** 📝 - **CREATED, NOT IMPLEMENTED**: Credit card fraud modeling
-5. **05_model_evaluation.ipynb** 📝 - **PLANNED**: Model evaluation and performance metrics
+2. **02_creditcard_preparation.ipynb** - **COMPLETED**: Credit card data preparation
+   - ✅ Loaded and analyzed creditcard.csv dataset
+   - ✅ Implemented train-test split with stratification
+   - ✅ Prepared data for machine learning models
+
+#### **Task 2 - Model Building and Training** ✅
+3. **03_fraud_model.ipynb** - **COMPLETED**: Fraud modeling with custom features
+   - ✅ **Data Preparation**: Separated features and target variables
+   - ✅ **Train-Test Split**: Proper data splitting for model evaluation
+   - ✅ **Model Selection**: Implemented two models as required:
+     - Logistic Regression (baseline, interpretable model)
+     - Random Forest (powerful ensemble model)
+   - ✅ **Model Training**: Trained models on Fraud_Data.csv dataset
+   - ✅ **Model Evaluation**: Used appropriate metrics for imbalanced data
+
+4. **04_fraud_model_creditcard.ipynb** - **COMPLETED**: Credit card fraud modeling
+   - ✅ Applied same modeling approach to creditcard.csv dataset
+   - ✅ Trained and evaluated both Logistic Regression and Random Forest models
+
+#### **Task 3 - Model Evaluation** ✅
+5. **05_model_evaluation.ipynb** - **COMPLETED**: Comprehensive model evaluation
+   - ✅ **Performance Metrics**:
+     - AUC-PR (Average Precision Score)
+     - F1-Score
+     - Confusion Matrix
+     - ROC curves
+   - ✅ **Model Comparison**: Clear comparison between Logistic Regression and Random Forest
+   - ✅ **Best Model Selection**: Justified model selection based on performance metrics
+   - ✅ **Visualization**: Generated comprehensive plots for model performance
+
+#### **Task 4 - Model Explainability** ✅
+6. **06_model_explainability.ipynb** - **COMPLETED**: SHAP model interpretability
+   - ✅ **SHAP Analysis**: Applied SHAP (Shapley Additive exPlanations) to best-performing models
+   - ✅ **Global Feature Importance**: Summary plots showing key drivers of fraud
+   - ✅ **Local Feature Importance**: Force plots for individual predictions
+   - ✅ **Model Interpretation**: Comprehensive analysis of fraud detection patterns
 
 ## 🧪 Testing
 
@@ -181,13 +242,18 @@ The project uses several tools to maintain code quality:
 
 The project includes comprehensive model evaluation with:
 
-- Classification metrics (precision, recall, F1-score)
-- ROC curves and AUC scores
-- Confusion matrices
-- SHAP feature importance analysis
-- Model interpretability visualizations
+- **Classification Metrics**: Precision, recall, F1-score for both datasets
+- **ROC Curves and AUC Scores**: Performance visualization for imbalanced data
+- **Confusion Matrices**: Detailed classification results
+- **SHAP Feature Importance**: Model interpretability analysis
+- **Model Comparison**: Clear performance comparison between models
 
+### Key Findings
 
+- **Fraud Detection Models**: Successfully implemented and evaluated on both Fraud_Data.csv and creditcard.csv datasets
+- **Model Performance**: Random Forest generally outperforms Logistic Regression for fraud detection
+- **Feature Importance**: SHAP analysis reveals key fraud indicators and patterns
+- **Data Quality**: Comprehensive preprocessing ensures high-quality training data
 
 ## 🤝 Contributing
 
@@ -199,46 +265,18 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- 10 Academy for the project framework
-- The open-source community for the tools and libraries used
+- **10 Academy** for the project framework and guidance
+- **Open Source Community** for the excellent libraries and tools used in this project
+- **Contributors** who have helped improve and maintain this codebase
 
-## 📞 Support
+## 📞 Contact
 
-For questions and support, please open an issue on GitHub or contact the development team.
+For questions, issues, or contributions, please:
 
-## 📋 Current Status
-
-### ✅ **Completed**
-- Project structure and scaffolding
-- Dependency management with `requirements.txt`
-- Development environment setup with comprehensive ML stack
-- Code quality tools configuration (Black, isort, flake8, mypy, bandit)
-- Pre-commit hooks setup and testing
-- Documentation and contributing guidelines
-- CI/CD pipeline configuration
-- **Data Analysis**: EDA and preprocessing notebook (01_eda_preprocessing.ipynb)
-- **Data Preparation**: Credit card data preparation notebook (02_creditcard_preparation.ipynb)
-
-### 🚧 **In Progress**
-- Core functionality implementation in `src/` modules (currently placeholders)
-- Feature engineering modules (not yet implemented)
-- Model training and evaluation (not yet implemented)
-- SHAP interpretability analysis (not yet implemented)
-- Notebooks 03 and 04 created but not yet implemented
-
-### 📝 **Next Steps**
-1. Implement data loading and preprocessing utilities in `src/`
-2. Develop feature engineering modules
-3. Create model training pipeline
-4. Add comprehensive testing (test files exist as placeholders)
-5. Complete implementation of Jupyter notebooks 03, 04, and 05
-6. Implement SHAP analysis for model interpretability
-
-### 📊 **Dataset Status**
-- **Fraud_Data.csv**: ✅ Loaded and analyzed in EDA notebook
-- **IpAddress_to_Country.csv**: ✅ Loaded and analyzed in EDA notebook
-- **creditcard.csv**: ✅ Loaded, analyzed, and prepared for modeling
+- Open an issue on GitHub
+- Contact the development team
+- Check the project documentation
 
 ---
 
-**Note**: The project is actively under development. Core functionality in the `src/` directory and remaining notebooks will be implemented as the project progresses.
+**FraudSight AI** - Making fraud detection more intelligent and interpretable through advanced machine learning techniques.
